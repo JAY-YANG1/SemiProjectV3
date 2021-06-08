@@ -1,4 +1,5 @@
 <%@ page pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div id="main">
 
 	<script src="https://www.google.com/recaptcha/api.js"></script>
@@ -42,7 +43,7 @@
                                       text-danger text-right" for="name">이름</label>
                         <input type="text" name="name" id="name"
                                class="form-control border-danger col-2"
-                               readonly>
+                               readonly value="${param.name}">
                     </div><!-- 이름 -->
 
                     <div class="form-group row">
@@ -50,11 +51,11 @@
                                       text-danger text-right" for="jumin1">주민번호</label>
                         <input type="text" name="jumin1" id="jumin1"
                                class="form-control border-danger col-2"
-                               readonly>
+                               readonly value="${param.jumin1}">
                         <span class="col-form-label">&nbsp;&mdash;&nbsp;</span>
                         <input type="text" name="jumin2" id="jumin2"
                                class="form-control border-danger col-2"
-                               readonly>
+                               readonly value="${param.jumin2}">
                     </div><!-- 주민번호 -->
 
                     <div class="form-group row">
@@ -94,7 +95,7 @@
                                class="form-control border-danger col-1" readonly>
                         &nbsp;
                         <button type="button" class="btn btn-dark"
-                                data-toggle="modal" data-target="#zipcode">
+                                data-toggle="modal" data-target="#zipmodal">
                             <i class="fas fa-question-circle"></i>
                             우편번호 찾기</button>
                     </div><!-- 우편번호 -->
@@ -120,7 +121,7 @@
                         <input type="text" name="email2" id="email2"
                                class="form-control border-danger col-2" readonly>
                         &nbsp;
-                        <select class="form-control border-danger col-2">
+                        <select class="form-control border-danger col-2" id="email3">
                             <option>-선택하세요-</option>
                             <option>직접입력하기</option>
                             <option>naver.com</option>
@@ -166,11 +167,16 @@
                 </div>
             </div><!-- 버튼들 -->
 
+            <input type="hidden" name="jumin" id="jumin">
+            <input type="hidden" name="zipcode" id="zipcode">
+            <input type="hidden" name="email" id="email">
+            <input type="hidden" name="phone" id="phone">
+
         </form>
     </div> <!-- 회원정보 입력 -->
 
     <!-- 우편번호 폼 모달 -->
-    <div id="zipcode" class="modal" role="dialog" tabindex="1">
+    <div id="zipmodal" class="modal" role="dialog" tabindex="1">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
@@ -215,7 +221,7 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger">
+                    <button type="button" class="btn btn-danger" id="sendzip">
                         <i class="fas fa-check-square"></i> 선택하고 닫기</button>
                 </div>
             </div>

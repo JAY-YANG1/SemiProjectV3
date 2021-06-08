@@ -41,7 +41,7 @@
                     </div>
 
                     <div class="modal-body">
-                        <form name="loginfrm" id="loginfrm" method="post">
+                        <form name="loginfrm" id="loginmodal" method="post">
                             <div class="form-group row">
                                 <label class="col-form-label col-4 text-right text-danger"
                                        for="userid">아이디</label>
@@ -76,5 +76,8 @@
         <!-- jQuery and Bootstrap Bundle (includes Popper) -->
         <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+        <script src="/js/join.js"></script>
+
+
     </body>
 </html>

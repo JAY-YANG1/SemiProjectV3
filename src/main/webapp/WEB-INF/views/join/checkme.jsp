@@ -69,8 +69,7 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-4 text-warning text-right"
-                               for="gender">성별</label>
+                        <label class="col-4 text-warning text-right">성별</label>
                         <div class="custom-control custom-radio">
                             <input type="radio" id="gmale" name="gender" value="m"
                                    class="custom-control-input">
