@@ -32,16 +32,16 @@
         </div>
 
         <!-- 로그인 폼 모달 -->
-        <div class="modal" id="loginfrm" tabindex="-1" role="dialog">
+        <div class="modal" id="loginmodal" tabindex="-1" role="dialog">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h3>로그인</h3>
-                        <button type="button" class="btn btn-light">닫기</button>
+                        <button type="button" id="lgmbtn" class="btn btn-light">닫기</button>
                     </div>
 
                     <div class="modal-body">
-                        <form name="loginfrm" id="loginmodal" method="post">
+                        <form name="loginfrm" id="loginfrm" method="post">
                             <div class="form-group row">
                                 <label class="col-form-label col-4 text-right text-danger"
                                        for="userid">아이디</label>
@@ -65,7 +65,7 @@
                     </div>
 
                     <div class="modal-footer justify-content-center">
-                        <button type="button" class="btn btn-danger">로그인</button>
+                        <button type="button" id="loginbtn" class="btn btn-danger">로그인</button>
                         <button type="button" class="btn btn-warning">아이디/비밀번호 찾기</button>
                     </div>
                 </div>
