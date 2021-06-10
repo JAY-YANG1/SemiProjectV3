@@ -1,4 +1,11 @@
 <%@ page pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
+<%-- 줄바꿈 기호를 변수로 생성 : br 태그 변환 필요! --%>
+<c:set var="newChar" value="
+" scope="application" />
+
 <div id="main">
 	<div>
 	    <i class="fas fa-comments fa-2x"> 자유 게시판</i>
@@ -22,12 +29,12 @@
 	    <div class="row">
 	        <table class="table col-10 offset-1">
 	            <tr class="tbbg1 text-center"><th colspan="2">
-	                <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2></th></tr>
-	            <tr class="tbbg2"><td style="width: 50%">anrdl3294</td>
-	                <td class="text-right">2021.05.21 11:11:11 / 22 / 33</td></tr>
-	            <tr class="tbbg3">
+	                <h2>${bd.title}</h2></th></tr>
+	            <tr class="tbbg2"><td style="width: 50%">${bd.userid}</td>
+	                <td class="text-right">${bd.regdate} / ${bd.thumbup} / ${bd.views}</td></tr>
+	            <tr class="tbbg3 bdcsize">
 	                <td colspan="2">
-	                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+						${fn:replace(bd.contents, newChar, "<br>")}
 	                </td>
 	            </tr>
 	        </table>
@@ -35,10 +42,13 @@
 	
 	    <div class="row">
 	        <div class="col-5 offset-1">
+				<%-- 자신이 작성한 글에 대해 수정/삭제 버튼이 표시되어야 함 --%>
+				<c:if test="${not empty UID and UID eq bd.userid}">
 	            <button type="button" class="btn btn-warning text-white">
 	                <i class="fas fa-edit"></i> 수정하기</button>
 	            <button type="button" class="btn btn-danger">
 	                <i class="fas fa-trash-alt"></i> 삭제하기</button>
+				</c:if>
 	        </div>
 	        <div class="col-5 text-right">
 	            <button type="button" class="btn btn-light">

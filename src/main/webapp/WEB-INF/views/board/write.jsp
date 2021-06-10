@@ -1,4 +1,5 @@
 <%@ page pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div id="main">
 
 	<script src="https://www.google.com/recaptcha/api.js"></script>
@@ -13,7 +14,7 @@
 	        <h3><i class="fas fa-plus-circle"> 새글 쓰기</i></h3>
 	    </div>
 	    <div class="col-5 text-right">
-	        <button type="button" class="btn btn-light">
+	        <button type="button" class="btn btn-light" id="listbdbtn">
 	            <i class="fas fa-list"></i> 목록으로</button>
 	    </div>
 	</div>
@@ -33,7 +34,7 @@
 	                   class="col-form-label col-2 text-right text-danger">
 	                작성자</label>
 	            <input type="text" name="userid" id="userid"
-	                   class="form-control col-9 border-danger" readonly>
+	                   class="form-control col-9 border-danger" value="${UID}" readonly>
 	        </div>
 	
 	        <div class="form-group row">
@@ -56,9 +57,9 @@
 	        <div class="form-group row">
 	            <hr class="col-10">
 	            <div class="col-12 text-center">
-	                <button type="button" class="btn btn-primary">
+	                <button type="button" class="btn btn-primary" id="savebdbbtn">
 	                    <i class="fas fa-check-circle"></i> 입력완료</button>
-	                <button type="button" class="btn btn-danger">
+	                <button type="reset" class="btn btn-danger">
 	                    <i class="fas fa-times-circle"></i> 다시입력</button>
 	            </div>
 	        </div>
