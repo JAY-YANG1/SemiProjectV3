@@ -1,4 +1,7 @@
 <%@ page pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <div id="main">
 	<div>
 	    <i class="fas fa-save fa-2x"> 자료실</i>
@@ -21,7 +24,7 @@
 	        </div>
 	    </div>
 	    <div class="col-5 text-right">
-	        <button type="button" class="btn btn-light" id="newbdbtn">
+	        <button type="button" class="btn btn-light" id="newpdsbtn">
 	            <i class="fas fa-plus-circle"></i> 새글 쓰기</button>
 	    </div>
 	</div><!-- 검색, 버튼 -->
@@ -50,175 +53,18 @@
 	                    <th>10</th>
 	                    <th>521</th>
 	                </tr>
-	
+
+					<c:forEach var="p" items="${pds}">
 	                <tr>
-	                    <td>1</td>
-	                    <td><a href="view.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></td>
-	                    <td>anrdl3294</td>
-	                    <td>2021.03.15</td>
-	                    <td>15</td>
-	                    <td>331</td>
+	                    <td>${p.pno}</td>
+	                    <td><a href="/pds/view?pno=${p.pno}">${p.title}</a></td>
+	                    <td>${p.userid}</td>
+	                    <td>${fn:substring(p.regdate, 0, 10)}</td>
+	                    <td>${p.thumbup}</td>
+	                    <td>${p.views}</td>
 	                </tr>
-	
-	                <tr>
-	                    <td>1</td>
-	                    <td>maecenas luctus dignissim magna, vitae iclaulsekjd fsadfasdfa
-	                    asdfdasfdasf fsdafasdfdasf</td>
-	                    <td>anrdl3294</td>
-	                    <td>2021.03.15</td>
-	                    <td>15</td>
-	                    <td>331</td>
-	                </tr>
-	
-	                <tr>
-	                    <td>1</td>
-	                    <td>maecenas luctus dignissim magna, vitae iclaulsekjd fsadfasdfa
-	                    asdfdasfdasf</td>
-	                    <td>anrdl3294</td>
-	                    <td>2021.03.15</td>
-	                    <td>15</td>
-	                    <td>331</td>
-	                </tr>
-	
-	                <tr>
-	                    <td>1</td>
-	                    <td>maecenas luctus dignissim magna, vitae iclaulsekjd fsadfasdfa
-	                    asdfdasfdasf</td>
-	                    <td>anrdl3294</td>
-	                    <td>2021.03.15</td>
-	                    <td>15</td>
-	                    <td>331</td>
-	                </tr>
-	
-	                <tr>
-	                    <td>1</td>
-	                    <td>maecenas luctus dignissim magna, vitae iclaulsekjd fsadfasdfa
-	                    asdfdasfdasf</td>
-	                    <td>anrdl3294</td>
-	                    <td>2021.03.15</td>
-	                    <td>15</td>
-	                    <td>331</td>
-	                </tr>
-	
-	                <tr>
-	                    <td>1</td>
-	                    <td>maecenas luctus dignissim magna, vitae iclaulsekjd fsadfasdfa
-	                    asdfdasfdasf</td>
-	                    <td>anrdl3294</td>
-	                    <td>2021.03.15</td>
-	                    <td>15</td>
-	                    <td>331</td>
-	                </tr>
-	
-	                <tr>
-	                    <td>1</td>
-	                    <td>maecenas luctus dignissim magna, vitae iclaulsekjd fsadfasdfa
-	                    asdfdasfdasf</td>
-	                    <td>anrdl3294</td>
-	                    <td>2021.03.15</td>
-	                    <td>15</td>
-	                    <td>331</td>
-	                </tr>
-	
-	                <tr>
-	                    <td>1</td>
-	                    <td>maecenas luctus dignissim magna, vitae iclaulsekjd fsadfasdfa
-	                    asdfdasfdasf</td>
-	                    <td>anrdl3294</td>
-	                    <td>2021.03.15</td>
-	                    <td>15</td>
-	                    <td>331</td>
-	                </tr>
-	
-	                <tr>
-	                    <td>1</td>
-	                    <td>maecenas luctus dignissim magna, vitae iclaulsekjd fsadfasdfa
-	                    asdfdasfdasf</td>
-	                    <td>anrdl3294</td>
-	                    <td>2021.03.15</td>
-	                    <td>15</td>
-	                    <td>331</td>
-	                </tr>
-	
-	                <tr>
-	                    <td>1</td>
-	                    <td>maecenas luctus dignissim magna, vitae iclaulsekjd fsadfasdfa
-	                    asdfdasfdasf</td>
-	                    <td>anrdl3294</td>
-	                    <td>2021.03.15</td>
-	                    <td>15</td>
-	                    <td>331</td>
-	                </tr>
-	
-	                <tr>
-	                    <td>1</td>
-	                    <td>maecenas luctus dignissim magna, vitae iclaulsekjd fsadfasdfa
-	                    asdfdasfdasf</td>
-	                    <td>anrdl3294</td>
-	                    <td>2021.03.15</td>
-	                    <td>15</td>
-	                    <td>331</td>
-	                </tr>
-	
-	                <tr>
-	                    <td>1</td>
-	                    <td>maecenas luctus dignissim magna, vitae iclaulsekjd fsadfasdfa
-	                    asdfdasfdasf</td>
-	                    <td>anrdl3294</td>
-	                    <td>2021.03.15</td>
-	                    <td>15</td>
-	                    <td>331</td>
-	                </tr>
-	
-	                <tr>
-	                    <td>1</td>
-	                    <td>maecenas luctus dignissim magna, vitae iclaulsekjd fsadfasdfa
-	                    asdfdasfdasf</td>
-	                    <td>anrdl3294</td>
-	                    <td>2021.03.15</td>
-	                    <td>15</td>
-	                    <td>331</td>
-	                </tr>
-	
-	                <tr>
-	                    <td>1</td>
-	                    <td>maecenas luctus dignissim magna, vitae iclaulsekjd fsadfasdfa
-	                    asdfdasfdasf</td>
-	                    <td>anrdl3294</td>
-	                    <td>2021.03.15</td>
-	                    <td>15</td>
-	                    <td>331</td>
-	                </tr>
-	
-	                <tr>
-	                    <td>1</td>
-	                    <td>maecenas luctus dignissim magna, vitae iclaulsekjd fsadfasdfa
-	                    asdfdasfdasf</td>
-	                    <td>anrdl3294</td>
-	                    <td>2021.03.15</td>
-	                    <td>15</td>
-	                    <td>331</td>
-	                </tr>
-	
-	                <tr>
-	                    <td>1</td>
-	                    <td>maecenas luctus dignissim magna, vitae iclaulsekjd fsadfasdfa
-	                    asdfdasfdasf</td>
-	                    <td>anrdl3294</td>
-	                    <td>2021.03.15</td>
-	                    <td>15</td>
-	                    <td>331</td>
-	                </tr>
-	
-	                <tr>
-	                    <td>1</td>
-	                    <td>maecenas luctus dignissim magna, vitae iclaulsekjd fsadfasdfa
-	                    asdfdasfdasf</td>
-	                    <td>anrdl3294</td>
-	                    <td>2021.03.15</td>
-	                    <td>15</td>
-	                    <td>331</td>
-	                </tr>
+					</c:forEach>
+
 	            </tbody>
 	        </table>
 	    </div>

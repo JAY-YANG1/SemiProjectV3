@@ -6,6 +6,7 @@
 .cmtbg2 { background: lime; padding: 7px 0; }
 .pushright { float: right }
 .bdcsize { height: 550px; }
+.patxt { font-size: 10px }
 
 .table.table-ellipsis tbody td {
     max-width: 100px;
