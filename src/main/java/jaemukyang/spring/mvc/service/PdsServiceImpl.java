@@ -8,7 +8,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service("psrv")
 public class PdsServiceImpl implements PdsService{
@@ -86,11 +88,45 @@ public class PdsServiceImpl implements PdsService{
 
     @Override
     public Pds readOneFname(String pno, String order) {
-        return null;
+        Map<String, String> param = new HashMap<>();
+        param.put("order", "fname" + order);
+        param.put("pno", pno);
+        return pdao.selectOneFname(param);
     }
 
     @Override
     public boolean downCountPds(String pno, String order) {
-        return false;
+        boolean isupdated = false;
+        Map<String, String> param = new HashMap<>();
+        param.put("order", "fdown" + order);
+        param.put("pno", pno);
+
+        if (pdao.downCountPds(param) > 0) {
+            isupdated = true;
+        }
+        return isupdated;
+    }
+
+    @Override
+    public void modifyRecommd(String pno) {
+        pdao.updateRecommd(pno);
+    }
+
+    @Override
+    public String readPrvpno(String pno) {
+        return pdao.selectPrvpno(pno);
+    }
+
+    @Override
+    public String readNxtpno(String pno) {
+        return pdao.selectNxtpno(pno);
+    }
+
+    @Override
+    public Pds removePds(String pno) {
+        Pds p = pdao.selectOnePds(pno);     // 나중에 첨부파일을 삭제하기 위해
+                                            // 삭제하기전 파일정보를 알아냄
+        pdao.deletePds(pno);    // 해당 게시글 삭제
+        return p;
     }
 }
