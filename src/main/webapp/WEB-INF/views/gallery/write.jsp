@@ -19,7 +19,7 @@
 	</div>
 	
 	<div class="card card-body bg-light col-10 offset-1">
-	    <form name="boardfrm" id="boardfrm">
+	    <form name="boardfrm" id="galfrm">
 	        <div class="form-group row">
 	            <label for="title"
 	                   class="col-form-label col-2 text-right text-danger">
@@ -33,7 +33,7 @@
 	                   class="col-form-label col-2 text-right text-danger">
 	                작성자</label>
 	            <input type="text" name="userid" id="userid"
-	                   class="form-control col-9 border-danger" readonly>
+	                   class="form-control col-9 border-danger" readonly value="${UID}">
 	        </div>
 	
 	        <div class="form-group row">
@@ -50,15 +50,15 @@
 	                   class="col-form-label col-2 text-right text-danger">
 	                파일첨부</label>
 	            <div class="custom-file col-9">
-	                <input type="file" name="file" id="file1" class="custom-file-input">
+	                <input type="file" name="img" id="file1" class="custom-file-input">
 	                <label class="custom-file-label">첨부할 파일을 선택하세요</label>
 	            </div>
 	            <div class="custom-file col-9 offset-2">
-	                <input type="file" name="file" id="file2" class="custom-file-input">
+	                <input type="file" name="img" id="file2" class="custom-file-input">
 	                <label class="custom-file-label">첨부할 파일을 선택하세요</label>
 	            </div>
 	            <div class="custom-file col-9 offset-2">
-	                <input type="file" name="file" id="file3" class="custom-file-input">
+	                <input type="file" name="img" id="file3" class="custom-file-input">
 	                <label class="custom-file-label">첨부할 파일을 선택하세요</label>
 	            </div>
 	        </div>
@@ -74,9 +74,9 @@
 	        <div class="form-group row">
 	            <hr class="col-10">
 	            <div class="col-12 text-center">
-	                <button type="button" class="btn btn-primary">
+	                <button type="button" class="btn btn-primary" id="newgal">
 	                    <i class="fas fa-check-circle"></i> 입력완료</button>
-	                <button type="button" class="btn btn-danger">
+	                <button type="reset" class="btn btn-danger">
 	                    <i class="fas fa-times-circle"></i> 다시입력</button>
 	            </div>
 	        </div>

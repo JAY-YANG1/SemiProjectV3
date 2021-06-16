@@ -1,4 +1,10 @@
 <%@ page pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<c:set var="thumbURL" value="http://localhost/thumb/" />
+
 <div id="main">
 	<div>
 	    <i class="far fa-file-image fa-2x"> 갤러리</i>
@@ -21,7 +27,7 @@
 	        </div>
 	    </div>
 	    <div class="col-5 text-right">
-	        <button type="button" class="btn btn-light" id="newbdbtn">
+	        <button type="button" class="btn btn-light" id="newgalbtn">
 	            <i class="fas fa-plus-circle"></i> 새글 쓰기</button>
 	    </div>
 	</div><!-- 검색, 버튼 -->
@@ -29,143 +35,28 @@
 	<div class="row">
 	    <div class="col-12">
 	        <ul class="list-inline moveright">
+				<c:forEach var="g" items="${gals}">
 	            <li class="list-inline-item pushdown">
 	                <div class="card cdwide">
 	                    <img class="imgsize card-img-top"
-	                         onclick=showimg('')>
+	                         onclick="showimg('${g.gno}');"
+							 src="${thumbURL}small_${g.gno}_${fn:split(g.fnames,"[/]")[0]}">
 	                    <div class="card-body">
-	                        <h5 class="card-title">abcabcabc</h5>
-	                        <p class="card-text">xyzxyzxyz
-	                            <span class="pushright">2021.05.21</span>
+	                        <h5 class="card-title">${g.title}</h5>
+	                        <p class="card-text">${g.userid}
+	                            <span class="pushright">${fn:substring(g.regdate, 0, 10)}</span>
 	                        </p>
 	                        <p class="card-text">
-	                            <i class="far fa-eye"></i> 12345
+	                            <i class="far fa-eye"></i> ${g.views}
 	                            <span class="pushright">
-	                                <i class="far fa-thumbs-up"></i>987
+	                                <i class="far fa-thumbs-up"></i>${g.thumbup}
 	                            </span>
 	                        </p>
 	                    </div><!-- card body -->
 	                </div><!-- card -->
 	            </li>
-	            <li class="list-inline-item pushdown">
-	                <div class="card cdwide">
-	                    <img class="imgsize card-img-top">
-	                    <div class="card-body">
-	                        <h5 class="card-title">abcabcabc</h5>
-	                        <p class="card-text">xyzxyzxyz
-	                            <span class="pushright">2021.05.21</span>
-	                        </p>
-	                        <p class="card-text">
-	                            <i class="far fa-eye"></i> 12345
-	                            <span class="pushright">
-	                                <i class="far fa-thumbs-up"></i>987
-	                            </span>
-	                        </p>
-	                    </div><!-- card body -->
-	                </div><!-- card -->
-	            </li>
-	            <li class="list-inline-item pushdown">
-	                <div class="card cdwide">
-	                    <img class="imgsize card-img-top">
-	                    <div class="card-body">
-	                        <h5 class="card-title">abcabcabc</h5>
-	                        <p class="card-text">xyzxyzxyz
-	                            <span class="pushright">2021.05.21</span>
-	                        </p>
-	                        <p class="card-text">
-	                            <i class="far fa-eye"></i> 12345
-	                            <span class="pushright">
-	                                <i class="far fa-thumbs-up"></i>987
-	                            </span>
-	                        </p>
-	                    </div><!-- card body -->
-	                </div><!-- card -->
-	            </li>
-	            <li class="list-inline-item pushdown">
-	                <div class="card cdwide">
-	                    <img class="imgsize card-img-top">
-	                    <div class="card-body">
-	                        <h5 class="card-title">abcabcabc</h5>
-	                        <p class="card-text">xyzxyzxyz
-	                            <span class="pushright">2021.05.21</span>
-	                        </p>
-	                        <p class="card-text">
-	                            <i class="far fa-eye"></i> 12345
-	                            <span class="pushright">
-	                                <i class="far fa-thumbs-up"></i>987
-	                            </span>
-	                        </p>
-	                    </div><!-- card body -->
-	                </div><!-- card -->
-	            </li>
-	            <li class="list-inline-item pushdown">
-	                <div class="card cdwide">
-	                    <img class="imgsize card-img-top">
-	                    <div class="card-body">
-	                        <h5 class="card-title">abcabcabc</h5>
-	                        <p class="card-text">xyzxyzxyz
-	                            <span class="pushright">2021.05.21</span>
-	                        </p>
-	                        <p class="card-text">
-	                            <i class="far fa-eye"></i> 12345
-	                            <span class="pushright">
-	                                <i class="far fa-thumbs-up"></i>987
-	                            </span>
-	                        </p>
-	                    </div><!-- card body -->
-	                </div><!-- card -->
-	            </li>
-	            <li class="list-inline-item pushdown">
-	                <div class="card cdwide">
-	                    <img class="imgsize card-img-top">
-	                    <div class="card-body">
-	                        <h5 class="card-title">abcabcabc</h5>
-	                        <p class="card-text">xyzxyzxyz
-	                            <span class="pushright">2021.05.21</span>
-	                        </p>
-	                        <p class="card-text">
-	                            <i class="far fa-eye"></i> 12345
-	                            <span class="pushright">
-	                                <i class="far fa-thumbs-up"></i>987
-	                            </span>
-	                        </p>
-	                    </div><!-- card body -->
-	                </div><!-- card -->
-	            </li>
-	            <li class="list-inline-item pushdown">
-	                <div class="card cdwide">
-	                    <img class="imgsize card-img-top">
-	                    <div class="card-body">
-	                        <h5 class="card-title">abcabcabc</h5>
-	                        <p class="card-text">xyzxyzxyz
-	                            <span class="pushright">2021.05.21</span>
-	                        </p>
-	                        <p class="card-text">
-	                            <i class="far fa-eye"></i> 12345
-	                            <span class="pushright">
-	                                <i class="far fa-thumbs-up"></i>987
-	                            </span>
-	                        </p>
-	                    </div><!-- card body -->
-	                </div><!-- card -->
-	            </li>
-	            <li class="list-inline-item pushdown">
-	                <div class="card cdwide">
-	                    <img class="imgsize card-img-top">
-	                    <div class="card-body">
-	                        <h5 class="card-title">abcabcabc</h5>
-	                        <p class="card-text">xyzxyzxyz
-	                            <span class="pushright">2021.05.21</span>
-	                        </p>
-	                        <p class="card-text">
-	                            <i class="far fa-eye"></i> 12345
-	                            <span class="pushright">
-	                                <i class="far fa-thumbs-up"></i>987
-	                            </span>
-	                        </p>
-	                    </div><!-- card body -->
-	                </div><!-- card -->
-	            </li>
+				</c:forEach>
+
 	
 	        </ul>
 	    </div>
