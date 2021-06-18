@@ -35,30 +35,35 @@
 	            <tr class="tbbg3">
 	                <td colspan="2">
 						<c:forEach var="f" items="${fnames}">
+							<c:if test="${f ne '-'}">
 							<c:set var="pos" value="${fn:indexOf(f, '.')}" />
 							<c:set var="fname" value="${fn:substring(f, 0, pos)}" />
 							<c:set var="fext" value="${fn:substring(f, pos+1, fn:length(f))}" />
 							<div>
 								<img src="${baseURL}${fname}${g.uuid}.${fext}" class="img-fluid">
 							</div>
+							</c:if>
 						</c:forEach>
+						<div>${g.contents}</div>
 	                </td>
 	            </tr><!--  본문 -->
 
 				<!-- 첨부파일 표시 -->
 				<c:forEach begin="0" end="${fn:length(fnames) - 1}" var="i">
-	            <tr><td colspan="2" class="tbbg4">
-	                <i class="fas fa-file-image"></i>
-	                ${fnames[i]} (${fsizes[i]}KB)</td></tr>
+					<c:if test="${fnames[i] ne '-'}" >
+						<tr><td colspan="2" class="tbbg4">
+							<i class="fas fa-file-image"></i>
+							${fnames[i]} (${fsizes[i]}KB)</td></tr>
+					</c:if>
 				</c:forEach>
 	        </table>
 	    </div>
 	
 	    <div class="row">
 	        <div class="col-5 offset-1">
-	            <button type="button" class="btn btn-warning text-white">
+	            <button type="button" class="btn btn-warning text-white" id="modgbtn">
 	                <i class="fas fa-edit"></i> 수정하기</button>
-	            <button type="button" class="btn btn-danger">
+	            <button type="button" class="btn btn-danger" id="rmvgbtn">
 	                <i class="fas fa-trash-alt"></i> 삭제하기</button>
 	        </div>
 	        <div class="col-5 text-right">
@@ -66,6 +71,8 @@
 	                <i class="fas fa-list"></i> 목록으로</button>
 	        </div>
 	    </div>
+		<input type="hidden" id="gno" value="${param.gno}">
+
 	</div><!-- 본문글 -->
 	
 	<div>

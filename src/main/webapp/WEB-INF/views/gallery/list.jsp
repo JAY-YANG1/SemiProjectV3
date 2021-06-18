@@ -36,25 +36,29 @@
 	    <div class="col-12">
 	        <ul class="list-inline moveright">
 				<c:forEach var="g" items="${gals}">
-	            <li class="list-inline-item pushdown">
-	                <div class="card cdwide">
-	                    <img class="imgsize card-img-top"
-	                         onclick="showimg('${g.gno}');"
-							 src="${thumbURL}small_${g.gno}_${fn:split(g.fnames,"[/]")[0]}">
-	                    <div class="card-body">
-	                        <h5 class="card-title">${g.title}</h5>
-	                        <p class="card-text">${g.userid}
-	                            <span class="pushright">${fn:substring(g.regdate, 0, 10)}</span>
-	                        </p>
-	                        <p class="card-text">
-	                            <i class="far fa-eye"></i> ${g.views}
-	                            <span class="pushright">
-	                                <i class="far fa-thumbs-up"></i>${g.thumbup}
-	                            </span>
-	                        </p>
-	                    </div><!-- card body -->
-	                </div><!-- card -->
-	            </li>
+					<c:set var="f" value="${fn:split(g.fnames, '/')[0]}" />
+					<c:set var="pos" value="${fn:indexOf(f, '.')}" />
+					<c:set var="fname" value="${fn:substring(f, 0, pos)}" />
+					<c:set var="fext" value="${fn:substring(f, pos+1, fn:length(f))}" />
+					<li class="list-inline-item pushdown">
+						<div class="card cdwide">
+							<img class="imgsize card-img-top"
+								 onclick="showimg('${g.gno}');"
+								 src="${thumbURL}small_${g.gno}_${fname}${g.uuid}.${fext}">
+							<div class="card-body">
+								<h5 class="card-title">${g.title}</h5>
+								<p class="card-text">${g.userid}
+									<span class="pushright">${fn:substring(g.regdate, 0, 10)}</span>
+								</p>
+								<p class="card-text">
+									<i class="far fa-eye"></i> ${g.views}
+									<span class="pushright">
+										<i class="far fa-thumbs-up"></i>${g.thumbup}
+									</span>
+								</p>
+							</div><!-- card body -->
+						</div><!-- card -->
+					</li>
 				</c:forEach>
 
 	
